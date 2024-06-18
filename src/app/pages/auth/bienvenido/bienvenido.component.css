@@ -1,0 +1,19 @@
+.contenedor {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("./../../../../assets/bienvenido.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+    color: #98ddf1;
+    display: flex;
+}
+
+a {
+    margin-right: 10px;
+}
+
+p {
+    text-align: center;
+}

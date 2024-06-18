@@ -1,0 +1,34 @@
+<section class="container">
+    <div class="my-3 p-3 bg-body rounded shadow-sm">
+      <h2 class="border-bottom pb-2 mb-0">Especialista Pendientes</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Correo electrónico</th>
+            <th scope="col">DNI</th>
+            <th scope="col">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let profesional of profPendientes">
+            <td>{{ profesional.nombre }}</td>
+            <td>{{ profesional.apellido }}</td>
+            <td>{{ profesional.mail }}</td>
+            <td>{{ profesional.dni }}</td>
+            <td>
+              <button class="btn btn-sm btn-danger" (click)="aceptarRechazar(profesional.id || '','Aprobado')">Aceptar</button>
+              <button class="btn btn-sm btn-success" (click)="aceptarRechazar(profesional.id || '','Rechazado')">Rechazar</button>
+              <button class="btn btn-sm btn-info" (click)="setSelectedItem(profesional)">Ver mas</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <hr/>
+
+    <app-m-usuario *ngIf="selectedItem" [data]="selectedItem" (closeModal)="setSelectedItem(null)">
+    </app-m-usuario>
+
+</section>  
