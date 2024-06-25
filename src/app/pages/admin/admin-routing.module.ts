@@ -12,7 +12,7 @@ const routes: Routes = [
     path: '', component: AdminComponent,
     children: [
       { path: '', component: SeccionUsuarioComponent },
-      { path: 'inicio', component: SeccionUsuarioComponent },
+      { path: 'inicio', component: SeccionUsuarioComponent }, //Usuarios
       { path: 'mi-perfil', component: MiPerfilComponent },
       { path: 'mis-turnos', component: MisTurnosComponent },
       { path: 'solicitar-turno', component: TurnoSolicitarComponent },

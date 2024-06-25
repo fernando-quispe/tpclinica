@@ -59,7 +59,9 @@ export class MiPerfilComponent implements OnInit {
   }
 
   verMisAtencionesHandler() {}
-  verMisHorariosHandler() {}
+  verMisHorariosHandler() {
+    console.log('horarios');
+  }
   verMiHistoriaClinicaHandler() {}
 
   async crearPdf() {

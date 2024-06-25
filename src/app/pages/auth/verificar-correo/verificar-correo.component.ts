@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-verificar-correo',
@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './verificar-correo.component.css'
 })
 
-export class VerificarCorreoComponent {
+export class VerificarCorreoComponent implements OnInit {
+
+  constructor(){}
+
+  ngOnInit(): void {
+  }
 }

@@ -9,6 +9,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { RecaptchaCommonModule } from 'ng-recaptcha/lib/recaptcha-common.module';
 import { SpinnerComponent } from '../../spinner/spinner.component';
 import { CaptchaComponent } from '../../captcha/captcha.component';
+import { MicaptchaService } from '../../../services/micaptcha.service';
 
 @Component({
   selector: 'app-alta-pacientes',
@@ -26,16 +27,20 @@ export class AltaPacientesComponent implements OnInit {
   obraSociales: ObraSocial[] = [];
   selectedObraSocial: string | null = null;
   loading: boolean = false;
-  siteKey: string;
+  //siteKey: string;
   recaptcha: boolean = false;
-  @ViewChild('captchaElem') captchaElem!: RecaptchaComponent; //ReCaptcha2Component
+  captchaGenerado: string;
+  //@ViewChild('captchaElem') captchaElem!: RecaptchaComponent; //ReCaptcha2Component
 
   constructor(
     private fb: FormBuilder,
     private clinicaFire: ClinicaService,
     private storage: Storage,
-    private auth: AuthService
+    private auth: AuthService,
+    private _captcha: MicaptchaService
     ) {
+    this.captchaGenerado = this._captcha.pickearPalabraRandom();
+    console.log(this.captchaGenerado);  
     this.paciente = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(3)]],
       apellido: ['', [Validators.required, Validators.minLength(3)]],
@@ -48,7 +53,7 @@ export class AltaPacientesComponent implements OnInit {
       imagen2: [''],
       rol: ['Paciente'],
     });
-    this.siteKey = '6Lck3yApAAAAAD67G7-iTRntXQfLlcXcUHWiYdhh';
+    
   }
 
   ngOnInit(): void {

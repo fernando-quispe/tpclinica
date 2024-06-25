@@ -25,7 +25,7 @@ export class TablaEspecialidadComponent implements OnInit{
   constructor(private clinicaFire: ClinicaService, private fb: FormBuilder){
     this.newEspecialidad = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(3)]],
-      description: ['', [Validators.required]],
+      //description: ['', [Validators.required]],
       estado:['Activa']
     });
   }

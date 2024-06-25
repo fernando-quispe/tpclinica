@@ -15,7 +15,7 @@ export class AdminComponent {
   items: Item[] = [];
   constructor() {
     this.items = [
-      { title: 'Inicio',
+      { title: 'Usuarios',
         link: 'inicio',
         active: false,
       },

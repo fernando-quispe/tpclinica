@@ -31,7 +31,7 @@
               <label for="edad" class="form-label">Edad</label>
               <input id="edad" type="text" class="form-control" placeholder="Ingrese edad" formControlName="edad"/>
               <span *ngIf=" profesional.get('edad')?.hasError('required') && profesional.get('edad')?.touched" class="text-danger">
-                La <strong>Edad</strong> es requerido</span>
+                La <strong>Edad</strong> es requerida</span>
               <span *ngIf="profesional.get('edad')?.hasError('min') && profesional.get('edad')?.touched" class="text-danger">
                 La <strong>Edad</strong> debe ser mayor o igual a 18 años.
               </span>
@@ -39,7 +39,7 @@
                 La <strong>Edad</strong> debe ser menor o igual a 99 años.
               </span>
               <span *ngIf=" profesional.get('edad')?.hasError('soloNumeros') && profesional.get('edad')?.touched" class="text-danger">
-                La <strong>Edad</strong> solo permiten números
+                - La <strong>Edad</strong> solo permite números
               </span>
             </div>
   
@@ -50,7 +50,7 @@
                   El <strong>DNI</strong> es requerido
               </span>
               <span *ngIf=" profesional.get('dni')?.hasError('soloNumeros') && profesional.get('dni')?.touched" class="text-danger">
-                  El <strong>DNI</strong> solo permiten números
+                 - El <strong>DNI</strong> solo permite números
               </span>
             </div>
             <!-- especialidades -->
@@ -67,7 +67,7 @@
             </div>
 
             <div class="col-12">
-              <label for="mail" class="form-label">Correo Electronico</label>
+              <label for="mail" class="form-label">Correo Electrónico</label>
               <input type="text" class="form-control" placeholder="Ingrese Correo Electrónico" formControlName="mail"/>
               <span *ngIf="profesional.get('mail')?.hasError('required') && profesional.get('mail')?.touched" class="text-danger">
                   El <strong>Correo Electrónico</strong> es requerido
@@ -92,13 +92,28 @@
               <label for="image01n" class="form-label">Imagen</label>
               <input type="file" class="form-control" id="image01n" placeholder="" (change)="uploadImage($event)"/>
             </div>
+                  
+            <!-- captcha -->         
+            <div class="col-12 col-md-6">
+              <label for="captcha" class="form-label">Captcha</label>
+              <div class="col-md-6 input-group mb-3">              
+                <input type="text" id="captchaVista" class="form-control" disabled [value]="captchaGenerado">
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="captcha" class="form-label">.</label>
+              <input type="text" class="form-control" placeholder="Escribir el Captcha" />
+              <span class="text-danger" *ngIf="profesional.get('captcha')?.hasError('required') && profesional.get('captcha')?.touched">
+                El Captcha <strong>es requerido</strong>
+              </span>
+              <span class="text-danger" *ngIf="profesional.get('captcha')?.hasError('isCaptchaWithParam') && profesional.get('captcha')?.touched">
+                Los Captchas <strong>deben ser iguales</strong>
+              </span>
+            </div>
+
           </div>
-          <form  style="margin-top: 5px;">
-            <!--<re-captcha #captchaElem [siteKey]="siteKey" (success)="handleSuccess($event)">
-            </re-captcha>-->
-            <re-captcha  (success)="handleSuccess($event)" siteKey="">
-            </re-captcha>
-          </form>
+
           <hr class="my-4" />
           <button class="w-100 btn btn-lg" style="background-color: #0d689d; color: white" type="submit" [disabled]="especialidades.length === 0 || !profesional.valid">
             Agregar

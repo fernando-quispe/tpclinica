@@ -91,10 +91,7 @@ export class ClinicaService {
   }
     
   addProfesionalEspecialidad(idprofesional: string, especialidad: any) {
-    const aCollection = collection(
-      this.fire,
-      `profesional/${idprofesional}/especialidades`
-    );
+    const aCollection = collection(this.fire,`profesional/${idprofesional}/especialidades` );
     return addDoc(aCollection, especialidad);
   }
 

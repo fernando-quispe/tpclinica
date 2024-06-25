@@ -42,5 +42,6 @@ export const appConfig: ApplicationConfig = {
                   "authDomain":"clinicaonline-cdb52.firebaseapp.com",
                   "messagingSenderId":"588740852376"})), 
                   provideStorage(() => getStorage()), provideAnimationsAsync(),
-                  { provide: RECAPTCHA_V3_SITE_KEY, useValue: '6Ld-oBgpAAAAAIqtf5385weDlA9hsPopf7BDqZQ0' },]
+                  //{ provide: RECAPTCHA_V3_SITE_KEY, useValue: '6Ld-oBgpAAAAAIqtf5385weDlA9hsPopf7BDqZQ0' }, para que no figure en todas las pag
+                  ]
 };

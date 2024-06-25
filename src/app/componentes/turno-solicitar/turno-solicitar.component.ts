@@ -37,7 +37,7 @@ export class TurnoSolicitarComponent implements OnInit{
   selecHora: string = '';
   turnoSolicitado!: Turno;
   especialida_step = false;
-  profecional_step = false;
+  profesional_step = false;
   fecha_step = false;
   hora_step = false;
   confirmar_step = false;
@@ -57,7 +57,7 @@ export class TurnoSolicitarComponent implements OnInit{
       ds => {
       this.miRol = ds.data().rol;
         if(this.miRol == 'Administrador'){
-          //Ya veremos que q va ser el administradoR
+          //Ya veremos que q va ser el administrador
         }else if(this.miRol == 'Paciente'){
           this.clinicaFire.getUserByID(ds.id).then(resp => {
             this.idPac = ds.id;
@@ -87,15 +87,18 @@ export class TurnoSolicitarComponent implements OnInit{
   }
 
   next() {
+    
     if (this.step == 1) {
       const especialidadElegida = this.especialidadDetails.value.especialidad;
       this.onEspecialidadSeleccionadaHandler(especialidadElegida);
       this.especialida_step = true;
       this.step++;
     } else if (this.step == 2) {
-      this.profecional_step = true;
+      console.log('selecciono especialista');
+      this.profesional_step = true;
       this.step++;
     } else if (this.step == 3) {
+      console.log('en fecha');
       this.fecha_step = true;
       this.onRellenarTurno();
       this.step++;
@@ -103,12 +106,13 @@ export class TurnoSolicitarComponent implements OnInit{
   }
 
   previous() {
+    
     this.step--;
     if (this.step == 1) {
       this.especialida_step = false;
     }
     if (this.step == 2) {
-      this.profecional_step = false;
+      this.profesional_step = false;
     }
     if (this.step == 3) {
       this.fecha_step = false;
@@ -165,12 +169,12 @@ export class TurnoSolicitarComponent implements OnInit{
   }
 
   getBackgroundImage(img: string): string {
-    if (img.trim() === '') {
-      // Si no hay imagen, utiliza una imagen por defecto
-      return 'url("../../../assets/icono-clinica.png")'; // Ajusta la ruta según tu estructura de archivos
-    } else {
-      // Si hay una imagen, utiliza la URL proporcionada
-      return `url('${img}')`;
-    }
+      if (img && img.trim() === '') {
+        return 'url("../../../assets/icono-clinica.png")';
+      } else if (img) {
+        return `url('${img}')`;
+      } else {
+        return 'url("../../../assets/icono-clinica.png")'; // Otra ruta de imagen por defecto
+      }
   }
 }

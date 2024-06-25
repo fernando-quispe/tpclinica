@@ -24,17 +24,31 @@ export class FavbuttonComponent {
 
   dataArray: { img: string; mail: string; contrasena: string }[] = [
     { img: '../../../assets/admin1.jpeg',
-      mail: 'fernandoquispe.utn@gmail.com',
+      mail: 'analistadetesting@gmail.com',
       contrasena: '123456',
     },
     { img: '../../../assets/especialista02.jpg',
       mail: 'lourdesriveramartinez1954@gmail.com',
       contrasena: '123456',
     },
+    { img: '../../../assets/especialista22.jpg',
+      mail: 'fernando_xxii@hotmail.com',
+      contrasena: '123456',
+    },
     { img: '../../../assets/paciente111.jpg',
       mail: 'santosquispe1950@gmail.com',
       contrasena: '123456',
+    },
+
+    { img: '../../../assets/paciente01.jpg',
+      mail: 'lewinam659@dovinou.com',
+      contrasena: '123456',
+    },   
+    { img: '../../../assets/paciente02.jpg',
+      mail: 'kawiw14512@dovinou.com',
+      contrasena: '123456',
     }
+
   ];
 
   handleLinkClick(email: string, password: string) {

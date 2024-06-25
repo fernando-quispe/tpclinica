@@ -92,13 +92,28 @@
               </label>
               <input type="file" class="form-control" id="image01n" placeholder="" (change)="uploadImage2($event)"/>
             </div>
+
+             <!-- captcha -->         
+             <div class="col-12 col-md-6">
+              <label for="captcha" class="form-label">Captcha</label>
+              <div class="col-md-6 input-group mb-3">              
+                <input type="text" id="captchaVista" class="form-control" disabled [value]="captchaGenerado">
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="captcha" class="form-label">.</label>
+              <input type="text" class="form-control" placeholder="Escribir el Captcha" />
+              <span class="text-danger" *ngIf="paciente.get('captcha')?.hasError('required') && paciente.get('captcha')?.touched">
+                El Captcha <strong>es requerido</strong>
+              </span>
+              <span class="text-danger" *ngIf="paciente.get('captcha')?.hasError('isCaptchaWithParam') && paciente.get('captcha')?.touched">
+                Los Captchas <strong>deben ser iguales</strong>
+              </span>
+            </div>
+
           </div>
-          <div style="margin-top: 5px;">
-            <!--<re-captcha #captchaElem [siteKey]="siteKey" (success)="handleSuccess($event)">
-            </re-captcha>-->
-            <re-captcha  (success)="handleSuccess($event)" siteKey="">
-            </re-captcha>
-          </div>
+          
           <hr class="my-4"/>
           <!--<button class="w-100 btn btn-lg" style="background-color: #0d689d; color: white" type="submit" [disabled]="!paciente.valid || !recaptcha"></button>-->
           <button class="w-100 btn btn-lg" style="background-color: #0d689d; color: white" type="submit" [disabled]="!paciente.valid">
