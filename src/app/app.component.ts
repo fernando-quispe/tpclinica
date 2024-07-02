@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Item } from './componentes/layout/layout.component';
-//import { slideInAnimation } from './route-animation';
+import { slideInAnimation } from './route-animation';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { Item } from './componentes/layout/layout.component';
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  //animations: [ slideInAnimation ]
+  animations: [ slideInAnimation ]
 })
 export class AppComponent {
   title = 'tp2clinicaonline';

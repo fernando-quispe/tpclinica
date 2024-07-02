@@ -125,7 +125,7 @@ export class TurnoSolicitarComponent implements OnInit{
       .add(this.turnoSolicitado)
       .then(() => {
         this.loading = false;
-        console.log('se agrego correctamenta');
+        console.log('se agrego correctamente');
       })
       .catch((er) => {
         this.loading = false;
